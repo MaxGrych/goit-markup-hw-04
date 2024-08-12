@@ -83,7 +83,6 @@ header .container {
   display: flex;
   justify-content: row;
   align-items: center;
-  color: #404bbf;
 }
 
 .container .menu {
@@ -106,6 +105,7 @@ header .container {
 
 .menu-link.current {
   position: relative;
+  color: #404bbf;
 }
 
 .menu-link.current::after {
@@ -192,8 +192,7 @@ header .container {
   min-height: 56px;
   border: none;
 
-  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
-    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hero-btn:hover,
@@ -416,7 +415,7 @@ header .container {
   height: 100%;
   left: 0;
 
-  padding: 40px 32px 0;
+  padding: 40px 32px;
 
   font-weight: 400;
   font-size: 16px;
