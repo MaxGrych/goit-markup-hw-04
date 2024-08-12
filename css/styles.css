@@ -54,6 +54,8 @@ button {
 
 header {
   border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 
 header .container {
@@ -96,30 +98,31 @@ header .container {
   color: #2e2f42;
 
   display: block;
-  padding-top: 24px;
-  padding-bottom: 24px;
+  padding: 24px 0;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-link.current {
   position: relative;
 }
 
-.menu-link-border:active::after {
+.menu-link.current::after {
   content: "";
   position: absolute;
-  border-radius: 2px;
-  width: 48px;
-  height: 4px;
+  left: 0;
+  bottom: -1px;
+
   background-color: #404bbf;
-  bottom: 0;
-  display: block;
+
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
 }
 
-.container .contact {
+.contact {
   display: flex;
   gap: 40px;
-}
-
-.menu-link:hover,
-.menu-link:focus {
-  color: #404bbf;
 }
 
 .contact-link {
@@ -128,10 +131,16 @@ header .container {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.menu-link:hover,
+.menu-link:focus,
 .contact-link:hover,
-.contact-link:focus {
+.contact-link:focus,
+.menu-link.current:hover,
+.menu-link.current:focus {
   color: #404bbf;
 }
 
@@ -140,17 +149,19 @@ header .container {
 /* #region hero */
 .hero {
   background-color: #2e2f42;
+  padding-top: 188px;
+  padding-bottom: 188px;
+
   background-image: linear-gradient(
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
     url(../images/section-hero/main-bg.jpg);
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 50% 50%;
   background-size: cover;
-
-  padding-top: 188px;
-  padding-bottom: 188px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 .hero-title {
   font-weight: 700;
@@ -180,7 +191,7 @@ header .container {
   min-height: 56px;
   border: none;
 
-  transition: color 150ms linear, background-color 150ms linear;
+  transition: color 250ms linear, background-color 250ms linear;
 }
 
 .hero-btn:hover,
@@ -281,7 +292,7 @@ header .container {
 
 .images-item {
   border-radius: 0 0 4px 4px;
-  background: #fff;
+  background-color: #fff;
   display: block;
   align-items: center;
   text-align: center;
@@ -307,6 +318,7 @@ header .container {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
+  margin-bottom: 8px;
 }
 
 .icon-team {
@@ -316,7 +328,7 @@ header .container {
   stroke-width: 0;
 }
 
-.social-links {
+.social-link-list {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -326,12 +338,27 @@ header .container {
   flex-shrink: 0;
 }
 
-.social-links-list {
+.social-link-item {
+  display: flex;
   height: 40px;
   width: 40px;
-  display: flex;
 }
-.link {
+
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4d5ae5;
+}
+
+.social-icon {
+  fill: #fff;
+}
+
+/* .link {
   width: 100%;
   height: 100%;
   background-color: #4d5ae5;
@@ -340,11 +367,9 @@ header .container {
   align-items: center;
   justify-content: center;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.link:hover {
-  background-color: #404bbf;
-}
-.link:focus {
+} */
+.social-link:hover,
+.social-link:focus {
   background-color: #404bbf;
 }
 
@@ -405,7 +430,7 @@ header .container {
   color: #f4f4fd;
 
   transform: translateY(100%);
-  transition: transform 300ms linear;
+  transition: transform 250ms linear;
 }
 
 .portfolio-title {
